@@ -1,0 +1,19 @@
+<article class="specialist-card">
+  <div class="specialist-card__image-wrapper">
+    <img
+      class="specialist-card__image"
+      [src]="specialist.image"
+      [alt]="specialist.name"
+    />
+  </div>
+
+  <div class="specialist-card__content">
+    <h3 class="specialist-card__name">{{ specialist.name }}</h3>
+    <p class="specialist-card__role">{{ specialist.role }}</p>
+    <p class="specialist-card__specialty">{{ specialist.specialty }}</p>
+
+    <p class="specialist-card__bio" *ngIf="specialist.bio">
+      {{ specialist.bio }}
+    </p>
+  </div>
+</article>

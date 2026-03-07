@@ -1,0 +1,20 @@
+<section class="contact">
+  <h1>{{ clinic.name }}</h1>
+
+  <p>
+    {{ clinic.address.street }},
+    {{ clinic.address.postalCode }}
+    {{ clinic.address.city }}
+  </p>
+
+  <p>Telefono: {{ contacts.phone }}</p>
+  <p>Email: {{ contacts.email }}</p>
+
+  <h2>Orari</h2>
+
+  <ul>
+    <li *ngFor="let day of hours">
+      {{ day.day }} — {{ day.open }} / {{ day.close }}
+    </li>
+  </ul>
+</section>

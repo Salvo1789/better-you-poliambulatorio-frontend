@@ -1,0 +1,12 @@
+<section class="services-preview">
+    <app-section-title
+    title="Le nostre specializzazioni"
+    subtitle="Un approccio multidisciplinare al benessere">
+  </app-section-title>
+  <div class="services-grid">
+    <app-service-card
+      *ngFor="let service of services"
+      [service]="service">
+    </app-service-card>
+  </div>
+</section>

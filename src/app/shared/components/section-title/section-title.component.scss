@@ -1,0 +1,27 @@
+.section-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  &__eyebrow {
+    margin: 0 0 0.75rem;
+    color: #20bfa9;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__heading {
+    margin: 0;
+    color: #0f172a;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    margin: 1rem auto 0;
+    max-width: 42rem;
+    color: #64748b;
+    line-height: 1.7;
+  }
+}

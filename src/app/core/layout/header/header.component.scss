@@ -1,0 +1,54 @@
+:host {
+  display: block;
+}
+
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.container {
+  width: min(100% - 2rem, 1280px);
+  margin-inline: auto;
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #334155;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #2a7de1;
+}
+
+.cta {
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  background-color: #2a7de1;
+  color: white;
+  font-weight: 600;
+}
+
+.cta:hover {
+  background-color: #1f67c2;
+}

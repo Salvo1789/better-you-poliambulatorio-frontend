@@ -1,0 +1,45 @@
+:host {
+  display: block;
+}
+
+.cta-banner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 2rem;
+  background: linear-gradient(135deg, #2a7de1, #20bfa9);
+  color: #ffffff;
+  border-radius: 1.5rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__title {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    margin: 0;
+    max-width: 42rem;
+    line-height: 1.6;
+  }
+
+  &__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.75rem 1.25rem;
+    background: #ffffff;
+    color: #1f67c2;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 700;
+  }
+}

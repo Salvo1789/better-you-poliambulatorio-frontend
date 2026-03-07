@@ -1,0 +1,77 @@
+<section class="hero">
+  <div class="container hero__content">
+    <div class="hero__text">
+      <p class="hero__eyebrow">BetterYou – Poliambulatorio</p>
+      <h1 class="hero__title">Il tuo percorso verso una versione migliore di te</h1>
+      <p class="hero__description">
+        Un poliambulatorio dedicato al benessere della persona, con specialisti in
+        fisioterapia, osteopatia, ortopedia e dietistica.
+      </p>
+
+      <div class="hero__actions">
+        <app-ui-button
+          label="Prenota una visita"
+          link="/prenotazioni"
+          variant="primary">
+        </app-ui-button>
+
+        <app-ui-button
+          label="Scopri le specializzazioni"
+          link="/specializzazioni"
+          variant="secondary">
+        </app-ui-button>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <img
+        src="assets/images/home/hero-clinic.jpg"
+        alt="BetterYou Poliambulatorio" />
+    </div>
+  </div>
+</section>
+
+<section class="services-preview section">
+  <div class="container">
+    <app-section-title
+      eyebrow="Specializzazioni"
+      title="Le nostre aree di competenza"
+      subtitle="Un approccio multidisciplinare per accompagnarti nel recupero, nella prevenzione e nel benessere quotidiano.">
+    </app-section-title>
+
+    <div class="services-grid">
+      <app-service-card
+        *ngFor="let service of services"
+        [service]="service">
+      </app-service-card>
+    </div>
+  </div>
+</section>
+
+<section class="specialists-preview section section--soft">
+  <div class="container">
+    <app-section-title
+      eyebrow="Team"
+      title="Professionisti al tuo fianco"
+      subtitle="Un team qualificato per offrirti percorsi personalizzati e integrati.">
+    </app-section-title>
+
+    <div class="specialists-grid">
+      <app-specialist-card
+        *ngFor="let specialist of specialists"
+        [specialist]="specialist">
+      </app-specialist-card>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <app-cta-banner
+      title="Prenota il tuo primo incontro con BetterYou"
+      subtitle="Contattaci per ricevere informazioni o fissare una visita con uno dei nostri specialisti."
+      buttonText="Vai ai contatti"
+      buttonLink="/contatti">
+    </app-cta-banner>
+  </div>
+</section>

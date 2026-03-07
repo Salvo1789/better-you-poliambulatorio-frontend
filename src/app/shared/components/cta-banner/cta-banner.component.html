@@ -1,0 +1,10 @@
+<section class="cta-banner">
+  <div class="cta-banner__content">
+    <h2 class="cta-banner__title">{{ title }}</h2>
+    <p class="cta-banner__subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+  </div>
+
+  <a class="cta-banner__button" [routerLink]="buttonLink">
+    {{ buttonText }}
+  </a>
+</section>

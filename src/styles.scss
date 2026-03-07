@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./styles/abstracts/colors";
+@use "./styles/abstracts/spacing";
+@use "./styles/abstracts/typography";
+@use "./styles/abstracts/breakpoints";
+@use "./styles/abstracts/mixins";
+
+@use "./styles/base/reset";
+@use "./styles/base/globals";
+@use "./styles/base/page";
+@use "./styles/base/helpers";
+
+@use "./styles/layout/container";
+@use "./styles/layout/grid";
+@use "./styles/layout/sections";
+
+@use "./styles/components/buttons";
+@use "./styles/components/cards";
+@use "./styles/components/forms";
+@use "./styles/components/hero";
+@use "./styles/components/section-title";

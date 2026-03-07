@@ -1,0 +1,10 @@
+<a
+  class="ui-button"
+  [ngClass]="{
+    'ui-button--primary': variant === 'primary',
+    'ui-button--secondary': variant === 'secondary'
+  }"
+  [routerLink]="link"
+>
+  {{ label }}
+</a>

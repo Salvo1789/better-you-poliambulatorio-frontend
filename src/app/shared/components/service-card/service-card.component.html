@@ -1,0 +1,12 @@
+<article class="service-card">
+  <div class="service-card__icon" *ngIf="service.icon">
+    <img [src]="service.icon" [alt]="service.name" />
+  </div>
+
+  <h3 class="service-card__title">{{ service.name }}</h3>
+  <p class="service-card__description">{{ service.description }}</p>
+
+  <a class="service-card__link" [routerLink]="'/specializzazioni'">
+    Scopri di più
+  </a>
+</article>
