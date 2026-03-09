@@ -1,12 +1,73 @@
-<section class="services-preview">
+<section class="services-hero">
+  <div class="container services-hero__content">
+    <div class="services-hero__text">
+      <p class="services-hero__eyebrow">Specializzazioni</p>
+      <h1 class="services-hero__title">Competenze integrate per il tuo benessere</h1>
+      <p class="services-hero__description">
+        BetterYou offre percorsi personalizzati attraverso un approccio multidisciplinare
+        che unisce fisioterapia, osteopatia, ortopedia e dietistica.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <app-section-title
-    title="Le nostre specializzazioni"
-    subtitle="Un approccio multidisciplinare al benessere">
-  </app-section-title>
-  <div class="services-grid">
-    <app-service-card
-      *ngFor="let service of services"
-      [service]="service">
-    </app-service-card>
+      eyebrow="Le nostre aree"
+      title="Quattro specializzazioni, un unico approccio alla persona"
+      subtitle="Ogni servizio è pensato per accompagnarti nel recupero, nella prevenzione e nel miglioramento della qualità della vita.">
+    </app-section-title>
+
+    <div class="services-grid">
+      <app-service-card
+        *ngFor="let service of services"
+        [service]="service">
+      </app-service-card>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container">
+    <app-section-title
+      eyebrow="Come lavoriamo"
+      title="Un percorso costruito su misura"
+      subtitle="Ogni paziente viene seguito con attenzione, ascolto e coordinamento tra specialisti.">
+    </app-section-title>
+
+    <div class="services-process">
+      <article class="services-process__card">
+        <h3>1. Valutazione iniziale</h3>
+        <p>
+          Analizziamo sintomi, obiettivi e necessità per individuare il percorso più adatto.
+        </p>
+      </article>
+
+      <article class="services-process__card">
+        <h3>2. Piano personalizzato</h3>
+        <p>
+          Costruiamo un programma su misura, integrando più competenze quando necessario.
+        </p>
+      </article>
+
+      <article class="services-process__card">
+        <h3>3. Monitoraggio continuo</h3>
+        <p>
+          Seguiamo l’evoluzione del percorso per garantire efficacia, continuità e benessere duraturo.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <app-cta-banner
+      title="Vuoi capire quale specializzazione fa per te?"
+      subtitle="Contattaci per ricevere informazioni e individuare insieme il professionista più adatto alle tue esigenze."
+      buttonText="Contattaci"
+      buttonLink="/contatti">
+    </app-cta-banner>
   </div>
 </section>

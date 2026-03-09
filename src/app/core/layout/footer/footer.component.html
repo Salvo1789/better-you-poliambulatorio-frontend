@@ -1,1 +1,83 @@
-<p>footer works!</p>
+<footer class="footer">
+
+  <div class="container footer__grid">
+
+    <!-- Colonna 1 -->
+    <div class="footer__brand">
+      <h3 class="footer__title">{{ clinic.name }}</h3>
+
+      <p class="footer__tagline">
+        {{ clinic.tagline }}
+      </p>
+
+      <p class="footer__address">
+        {{ clinic.address.street }}<br>
+        {{ clinic.address.postalCode }} {{ clinic.address.city }}
+      </p>
+    </div>
+
+
+    <!-- Colonna 2 -->
+    <div class="footer__nav">
+      <h4 class="footer__subtitle">Navigazione</h4>
+
+      <ul>
+        <li><a routerLink="/">Home</a></li>
+        <li><a routerLink="/specializzazioni">Specializzazioni</a></li>
+        <li><a routerLink="/specialisti">Specialisti</a></li>
+        <li><a routerLink="/contatti">Contatti</a></li>
+        <li><a routerLink="/prenotazioni">Prenotazioni</a></li>
+      </ul>
+    </div>
+
+
+    <!-- Colonna 3 -->
+    <div class="footer__contacts">
+      <h4 class="footer__subtitle">Contatti</h4>
+
+      <p>
+        Tel: <a [href]="'tel:' + contacts.phone">{{ contacts.phone }}</a>
+      </p>
+
+      <p>
+        Email:
+        <a [href]="'mailto:' + contacts.email">
+          {{ contacts.email }}
+        </a>
+      </p>
+    </div>
+
+
+    <!-- Colonna 4 -->
+    <div class="footer__hours">
+      <h4 class="footer__subtitle">Orari</h4>
+
+      <ul>
+        <li *ngFor="let day of hours">
+          <span>{{ day.day }}</span>
+          <span>{{ day.open }} - {{ day.close }}</span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <div class="footer__bottom">
+
+    <div class="container footer__bottom-content">
+
+      <p>
+        © {{ year }} {{ clinic.name }} — Tutti i diritti riservati
+      </p>
+
+      <div class="footer__legal">
+        <a href="#">Privacy</a>
+        <a href="#">Cookie</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
