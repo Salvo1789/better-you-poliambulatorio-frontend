@@ -1,1 +1,73 @@
-<p>specialists works!</p>
+<section class="specialists-hero">
+  <div class="container specialists-hero__content">
+    <div class="specialists-hero__text">
+      <p class="specialists-hero__eyebrow">Specialisti</p>
+      <h1 class="specialists-hero__title">Un team qualificato al tuo fianco</h1>
+      <p class="specialists-hero__description">
+        BetterYou riunisce professionisti con competenze diverse e complementari,
+        per offrirti un percorso di cura e benessere costruito sulle tue esigenze.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <app-section-title
+      eyebrow="Il team"
+      title="Professionisti che lavorano in sinergia"
+      subtitle="Fisioterapia, osteopatia, ortopedia e dietistica si integrano per accompagnarti con competenza, ascolto e continuità.">
+    </app-section-title>
+
+    <div class="specialists-grid">
+      <app-specialist-card
+        *ngFor="let specialist of specialists"
+        [specialist]="specialist">
+      </app-specialist-card>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container">
+    <app-section-title
+      eyebrow="Approccio"
+      title="Competenze diverse, un’unica visione"
+      subtitle="Ogni professionista contribuisce a costruire un percorso coerente, personalizzato e orientato al benessere della persona.">
+    </app-section-title>
+
+    <div class="team-values">
+      <article class="team-values__card">
+        <h3>Ascolto e attenzione</h3>
+        <p>
+          Ogni persona viene accolta con cura, per comprendere esigenze, obiettivi e contesto di partenza.
+        </p>
+      </article>
+
+      <article class="team-values__card">
+        <h3>Collaborazione tra specialisti</h3>
+        <p>
+          Il confronto tra competenze permette di individuare il percorso più adatto in ogni fase.
+        </p>
+      </article>
+
+      <article class="team-values__card">
+        <h3>Continuità del percorso</h3>
+        <p>
+          Seguiamo l’evoluzione del paziente nel tempo, favorendo risultati concreti e sostenibili.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <app-cta-banner
+      title="Prenota una visita con il team BetterYou"
+      subtitle="Contattaci per ricevere informazioni o individuare lo specialista più adatto alle tue esigenze."
+      buttonText="Vai ai contatti"
+      buttonLink="/contatti">
+    </app-cta-banner>
+  </div>
+</section>

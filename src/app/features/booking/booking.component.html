@@ -1,1 +1,111 @@
-<p>booking works!</p>
+<section class="booking-hero">
+  <div class="container booking-hero__content">
+
+    <p class="booking-hero__eyebrow">Prenotazioni</p>
+
+    <h1 class="booking-hero__title">
+      Prenota una visita con il team BetterYou
+    </h1>
+
+    <p class="booking-hero__description">
+      Compila il modulo per richiedere una visita o ricevere informazioni.
+      Ti ricontatteremo nel più breve tempo possibile.
+    </p>
+
+  </div>
+</section>
+
+
+<section class="section">
+
+  <div class="container booking-layout">
+
+    <!-- Form -->
+    <div class="booking-form">
+
+      <app-section-title
+        title="Richiedi una prenotazione"
+        subtitle="Inserisci i tuoi dati e ti contatteremo per confermare l’appuntamento.">
+      </app-section-title>
+
+      <form
+        [formGroup]="bookingForm"
+        (ngSubmit)="submit()">
+
+        <div class="form-group">
+          <label>Nome e Cognome</label>
+          <input type="text" formControlName="name">
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" formControlName="email">
+        </div>
+
+        <div class="form-group">
+          <label>Telefono</label>
+          <input type="tel" formControlName="phone">
+        </div>
+
+        <div class="form-group">
+          <label>Specializzazione</label>
+
+          <select formControlName="service">
+            <option value="">Seleziona</option>
+            <option>Fisioterapia</option>
+            <option>Osteopatia</option>
+            <option>Ortopedia</option>
+            <option>Dietistica</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Messaggio (facoltativo)</label>
+          <textarea rows="4" formControlName="message"></textarea>
+        </div>
+
+        <button type="submit" class="booking-submit">
+          Invia richiesta
+        </button>
+
+      </form>
+
+    </div>
+
+
+    <!-- Info -->
+    <div class="booking-info">
+
+      <div class="booking-info__card">
+        <h3>Come funziona</h3>
+
+        <ul>
+          <li>Compila il modulo con i tuoi dati</li>
+          <li>Il team BetterYou ti contatterà</li>
+          <li>Confermeremo insieme l’appuntamento</li>
+        </ul>
+      </div>
+
+      <div class="booking-info__card">
+        <h3>Preferisci contattarci direttamente?</h3>
+
+        <p>
+          Puoi anche chiamarci o scriverci via email per ricevere informazioni
+          e prenotare la tua visita.
+        </p>
+
+        <p class="booking-info__contact">
+          Tel: +39 0541 123456
+        </p>
+
+        <p class="booking-info__contact">
+          Email: info&#64;betteryou.it
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

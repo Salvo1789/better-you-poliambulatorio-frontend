@@ -16,53 +16,157 @@
 }
 
 .hero {
-  padding: 4rem 0 5rem;
-  background: linear-gradient(to bottom, #f8fafc, #ffffff);
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 4rem;
+  background:
+    radial-gradient(circle at top left, rgba(32, 191, 169, 0.12), transparent 32%),
+    radial-gradient(circle at top right, rgba(42, 125, 225, 0.12), transparent 28%),
+    linear-gradient(to bottom, #f8fafc, #ffffff);
+}
 
-  &__content {
-    display: grid;
-    gap: 2rem;
-    align-items: center;
-  }
+.hero__grid {
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
+}
 
-  &__eyebrow {
-    margin: 0 0 1rem;
-    color: #20bfa9;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 0.875rem;
-  }
+.hero__content {
+  position: relative;
+  z-index: 1;
+}
 
-  &__title {
-    margin: 0 0 1rem;
-    color: #0f172a;
-    font-size: clamp(2rem, 4vw, 3.25rem);
-    line-height: 1.1;
-  }
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.9rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #dbeafe;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #1f67c2;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
 
-  &__description {
-    margin: 0;
-    max-width: 42rem;
-    color: #475569;
-    font-size: 1.125rem;
-    line-height: 1.7;
-  }
+.hero__badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #20bfa9;
+  flex-shrink: 0;
+}
 
-  &__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
+.hero__title {
+  margin: 0 0 1rem;
+  color: #0f172a;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  max-width: 12ch;
+}
 
-  &__visual img {
-    width: 100%;
+.hero__description {
+  margin: 0;
+  max-width: 42rem;
+  color: #475569;
+  font-size: 1.125rem;
+  line-height: 1.75;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero__highlights {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.hero-highlight {
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+
+  strong {
     display: block;
-    border-radius: 1.5rem;
-    object-fit: cover;
+    margin-bottom: 0.35rem;
+    color: #0f172a;
+    font-size: 0.98rem;
+  }
+
+  span {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 }
+
+.hero__visual {
+  position: relative;
+}
+
+.hero__image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.75rem;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+  background: #e2e8f0;
+}
+
+.hero__image-wrapper img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  min-height: 420px;
+}
+
+.hero-card {
+  position: absolute;
+  max-width: 260px;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 1rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.hero-card__label {
+  margin: 0 0 0.4rem;
+  color: #20bfa9;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.hero-card__value {
+  margin: 0;
+  color: #0f172a;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.hero-card--top {
+  top: 1rem;
+  left: -0.75rem;
+}
+
+.hero-card--bottom {
+  right: -0.75rem;
+  bottom: 1rem;
+}
+
 
 .services-grid,
 .specialists-grid {
@@ -71,8 +175,12 @@
 }
 
 @media (min-width: 768px) {
-  .hero__content {
-    grid-template-columns: 1.1fr 0.9fr;
+   .hero {
+    padding: 6rem 0 5rem;
+  }
+
+  .hero__highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .services-grid {
@@ -85,11 +193,27 @@
 }
 
 @media (min-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(420px, 0.95fr);
+  }
+
   .services-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .specialists-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-card {
+    position: static;
+    max-width: none;
+    margin-top: 1rem;
+  }
+
+  .hero__image-wrapper img {
+    min-height: 320px;
   }
 }

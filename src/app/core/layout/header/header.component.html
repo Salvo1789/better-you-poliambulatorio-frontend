@@ -1,17 +1,78 @@
-<header class="header">
-  <div class="container">
-
-    <div class="logo">
+<header
+  class="header"
+  [ngClass]="{
+    'header--scrolled': isScrolled
+  }"
+>
+  <div class="container header__bar">
+    <a class="header__logo" routerLink="/" (click)="closeMenu()">
       BetterYou
-    </div>
+    </a>
 
-    <nav>
-      <a routerLink="/">Home</a>
-      <a routerLink="/chi-siamo">Chi siamo</a>
-      <a routerLink="/specializzazioni">Specializzazioni</a>
-      <a routerLink="/specialisti">Specialisti</a>
-      <a routerLink="/contatti">Contatti</a>
+    <button
+      class="header__toggle"
+      type="button"
+      (click)="toggleMenu()"
+      aria-label="Apri menu"
+      [attr.aria-expanded]="isMenuOpen"
+    >
+      {{ isMenuOpen ? '✕' : '☰' }}
+    </button>
+
+    <nav
+      class="header__nav"
+      [ngClass]="{
+        'header__nav--open': isMenuOpen
+      }"
+    >
+      <a
+        routerLink="/"
+        routerLinkActive="is-active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+      >
+        Home
+      </a>
+
+      <a
+        routerLink="/chi-siamo"
+        routerLinkActive="is-active"
+        (click)="closeMenu()"
+      >
+        Chi siamo
+      </a>
+
+      <a
+        routerLink="/specializzazioni"
+        routerLinkActive="is-active"
+        (click)="closeMenu()"
+      >
+        Specializzazioni
+      </a>
+
+      <a
+        routerLink="/specialisti"
+        routerLinkActive="is-active"
+        (click)="closeMenu()"
+      >
+        Specialisti
+      </a>
+
+      <a
+        routerLink="/contatti"
+        routerLinkActive="is-active"
+        (click)="closeMenu()"
+      >
+        Contatti
+      </a>
+
+      <a
+        routerLink="/prenotazioni"
+        class="header__cta"
+        (click)="closeMenu()"
+      >
+        Prenota
+      </a>
     </nav>
-
   </div>
 </header>

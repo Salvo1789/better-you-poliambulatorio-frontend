@@ -1,20 +1,103 @@
-<section class="contact">
-  <h1>{{ clinic.name }}</h1>
+<section class="contact-hero">
+  <div class="container contact-hero__content">
+    <div class="contact-hero__text">
+      <p class="contact-hero__eyebrow">Contatti</p>
+      <h1 class="contact-hero__title">Siamo qui per accompagnarti nel tuo percorso di benessere</h1>
+      <p class="contact-hero__description">
+        Contatta BetterYou per ricevere informazioni, prenotare una visita
+        o conoscere lo specialista più adatto alle tue esigenze.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <p>
-    {{ clinic.address.street }},
-    {{ clinic.address.postalCode }}
-    {{ clinic.address.city }}
-  </p>
+<section class="section">
+  <div class="container">
+    <app-section-title
+      eyebrow="Informazioni utili"
+      title="Come contattarci"
+      subtitle="Tutti i riferimenti del poliambulatorio in un’unica pagina, in modo semplice e immediato.">
+    </app-section-title>
 
-  <p>Telefono: {{ contacts.phone }}</p>
-  <p>Email: {{ contacts.email }}</p>
+    <div class="contact-grid">
+      <article class="contact-card">
+        <h3 class="contact-card__title">Recapiti</h3>
 
-  <h2>Orari</h2>
+        <p class="contact-card__text">
+          <strong>Telefono:</strong>
+          <a [href]="'tel:' + contacts.phone">{{ contacts.phone }}</a>
+        </p>
 
-  <ul>
-    <li *ngFor="let day of hours">
-      {{ day.day }} — {{ day.open }} / {{ day.close }}
-    </li>
-  </ul>
+        <p class="contact-card__text">
+          <strong>Email:</strong>
+          <a [href]="'mailto:' + contacts.email">{{ contacts.email }}</a>
+        </p>
+      </article>
+
+      <article class="contact-card">
+        <h3 class="contact-card__title">Indirizzo</h3>
+
+        <p class="contact-card__text">
+          {{ clinic.address.street }}<br>
+          {{ clinic.address.postalCode }} {{ clinic.address.city }}<br>
+          {{ clinic.address.country }}
+        </p>
+      </article>
+
+      <article class="contact-card">
+        <h3 class="contact-card__title">Orari di apertura</h3>
+
+        <ul class="hours-list">
+          <li class="hours-list__item" *ngFor="let day of hours">
+            <span>{{ day.day }}</span>
+            <span>{{ day.open }} - {{ day.close }}</span>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container">
+    <app-section-title
+      eyebrow="Dove siamo"
+      title="Raggiungi BetterYou"
+      subtitle="Una posizione comoda e facilmente accessibile per accompagnarti nel tuo percorso di salute e benessere.">
+    </app-section-title>
+
+    <div class="location-card">
+      <div class="location-card__content">
+        <h3>{{ clinic.name }}</h3>
+        <p>
+          {{ clinic.address.street }},
+          {{ clinic.address.postalCode }}
+          {{ clinic.address.city }}
+        </p>
+
+        <a
+          class="location-card__link"
+          [href]="'https://www.google.com/maps?q=' + clinic.map.latitude + ',' + clinic.map.longitude"
+          target="_blank"
+          rel="noopener noreferrer">
+          Apri su Google Maps
+        </a>
+      </div>
+
+      <div class="location-card__map-placeholder">
+        <span>Mappa / Google Maps placeholder</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <app-cta-banner
+      title="Hai bisogno di maggiori informazioni?"
+      subtitle="Il team BetterYou è a disposizione per aiutarti a trovare il percorso più adatto alle tue esigenze."
+      buttonText="Prenota una visita"
+      buttonLink="/prenotazioni">
+    </app-cta-banner>
+  </div>
 </section>
