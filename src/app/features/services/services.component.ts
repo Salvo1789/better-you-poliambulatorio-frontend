@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 
-import { SERVICES } from '../../data/services.data';
+import { ApiService } from '../../core/services/api.service';
+import { Service } from '../../models/service';
+
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { ServiceCardComponent } from '../../shared/components/service-card/service-card.component';
 import { CtaBannerComponent } from '../../shared/components/cta-banner/cta-banner.component';
@@ -18,6 +20,14 @@ import { CtaBannerComponent } from '../../shared/components/cta-banner/cta-banne
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
-export class ServicesComponent {
-  services = SERVICES;
+export class ServicesComponent implements OnInit {
+  private api = inject(ApiService);
+
+  services: Service[] = [];
+
+  ngOnInit(): void {
+    this.api.getServices().subscribe((services) => {
+      this.services = services;
+    });
+  }
 }
