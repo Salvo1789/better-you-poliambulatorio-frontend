@@ -5,6 +5,7 @@ import { ServicesComponent } from './features/services/services.component';
 import { SpecialistsComponent } from './features/specialists/specialists.component';
 import { BookingComponent } from './features/booking/booking.component';
 import { ContactComponent } from './features/contact/contact.component';
+import { AdminBookingsComponent } from './features/admin/admin-bookings.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
   { path: 'specializzazioni', component: ServicesComponent },
   { path: 'specialisti', component: SpecialistsComponent },
   { path: 'prenotazioni', component: BookingComponent },
+  { path: 'admin/prenotazioni', component: AdminBookingsComponent },
   { path: 'contatti', component: ContactComponent },
 ];

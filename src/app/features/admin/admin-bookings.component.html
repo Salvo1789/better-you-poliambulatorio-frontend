@@ -1,0 +1,133 @@
+<section class="admin-page">
+  <div class="container">
+    <div class="admin-page__header">
+      <div>
+        <p class="admin-page__eyebrow">Area specialisti</p>
+        <h1>Gestione prenotazioni</h1>
+        <p>Consulta le richieste ricevute e aggiorna lo stato del contatto.</p>
+      </div>
+
+      <button *ngIf="isUnlocked" type="button" class="admin-page__secondary" (click)="lock()">
+        Esci
+      </button>
+    </div>
+
+    <div *ngIf="isUnlocked" class="admin-session">
+      Accesso come <strong>{{ sessionName }}</strong> · {{ roleLabel(sessionRole) }}
+    </div>
+
+    <form *ngIf="!isUnlocked" class="admin-login" (ngSubmit)="login()">
+      <label for="admin-email">Email specialista</label>
+      <div class="admin-login__row">
+        <input
+          id="admin-email"
+          name="email"
+          type="email"
+          [(ngModel)]="email"
+          autocomplete="email"
+        />
+      </div>
+
+      <label for="admin-password">Password</label>
+      <div class="admin-login__row">
+        <input
+          id="admin-password"
+          name="password"
+          type="password"
+          [(ngModel)]="password"
+          autocomplete="current-password"
+        />
+        <button type="submit" [disabled]="isLoggingIn">
+          {{ isLoggingIn ? 'Accesso...' : 'Entra' }}
+        </button>
+      </div>
+
+      <p class="admin-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+    </form>
+
+    <div *ngIf="isUnlocked" class="admin-panel">
+      <div class="admin-panel__toolbar">
+        <p>{{ bookings.length }} prenotazioni</p>
+        <button type="button" class="admin-page__secondary" (click)="loadBookings()" [disabled]="isLoading">
+          {{ isLoading ? 'Aggiornamento...' : 'Aggiorna' }}
+        </button>
+      </div>
+
+      <p class="admin-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <div class="admin-empty" *ngIf="!isLoading && bookings.length === 0">
+        Nessuna prenotazione trovata.
+      </div>
+
+      <div class="booking-list" *ngIf="bookings.length > 0">
+        <article class="booking-card" *ngFor="let booking of bookings">
+          <div class="booking-card__main">
+            <div>
+              <p class="booking-card__service">{{ booking.service }}</p>
+              <h2>{{ booking.name }}</h2>
+              <p class="booking-card__date">
+                {{ booking.createdAt | date:'dd/MM/yyyy HH:mm' }}
+              </p>
+            </div>
+
+            <span class="booking-status" [ngClass]="statusClass(booking.status)">
+              {{ statusLabel(booking.status) }}
+            </span>
+          </div>
+
+          <div class="booking-card__contacts">
+            <a [href]="'mailto:' + booking.email">{{ booking.email }}</a>
+            <a [href]="'tel:' + booking.phone">{{ booking.phone }}</a>
+          </div>
+
+          <p class="booking-card__message" *ngIf="booking.message">
+            {{ booking.message }}
+          </p>
+
+          <label class="booking-card__status-select">
+            Stato
+            <select [ngModel]="booking.status" (ngModelChange)="updateStatus(booking, $event)" [name]="'status-' + booking.id">
+              <option *ngFor="let status of statuses" [ngValue]="status">
+                {{ statusLabel(status) }}
+              </option>
+            </select>
+          </label>
+        </article>
+      </div>
+    </div>
+
+    <section *ngIf="isUnlocked && sessionRole === 'ADMIN'" class="admin-panel doctor-panel">
+      <div class="admin-panel__toolbar">
+        <p>Account dottori</p>
+        <button type="button" class="admin-page__secondary" (click)="loadDoctorAccounts()">
+          Aggiorna account
+        </button>
+      </div>
+
+      <form class="doctor-form" (ngSubmit)="createDoctorAccount()">
+        <input name="doctorName" type="text" placeholder="Nome e cognome" [(ngModel)]="newDoctor.name" />
+        <input name="doctorEmail" type="email" placeholder="Email" [(ngModel)]="newDoctor.email" />
+        <input name="doctorPassword" type="password" placeholder="Password iniziale" [(ngModel)]="newDoctor.password" />
+        <select name="doctorRole" [(ngModel)]="newDoctor.role">
+          <option *ngFor="let role of roles" [ngValue]="role">{{ roleLabel(role) }}</option>
+        </select>
+        <button type="submit" [disabled]="isCreatingDoctor">
+          {{ isCreatingDoctor ? 'Creazione...' : 'Crea account' }}
+        </button>
+      </form>
+
+      <p class="admin-error" *ngIf="doctorErrorMessage">{{ doctorErrorMessage }}</p>
+      <p class="admin-success" *ngIf="doctorSuccessMessage">{{ doctorSuccessMessage }}</p>
+
+      <div class="doctor-list" *ngIf="doctorAccounts.length > 0">
+        <article class="doctor-row" *ngFor="let account of doctorAccounts">
+          <div>
+            <strong>{{ account.name }}</strong>
+            <p>{{ account.email }}</p>
+          </div>
+          <span>{{ roleLabel(account.role) }}</span>
+        </article>
+      </div>
+    </section>
+  </div>
+</section>

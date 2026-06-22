@@ -1,5 +1,5 @@
 export interface Specialist {
-  id: number;
+  id: string;
   name: string;
   role: string;
   specialty: string;

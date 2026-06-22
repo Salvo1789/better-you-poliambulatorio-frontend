@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Service } from '../../../models/service';
 
@@ -6,6 +7,7 @@ import { Service } from '../../../models/service';
   selector: 'app-service-card',
   standalone: true,
   imports: [
+    NgIf,
     RouterLink
   ],
   templateUrl: './service-card.component.html',
