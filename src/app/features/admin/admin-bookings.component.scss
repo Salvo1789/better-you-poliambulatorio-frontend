@@ -1,0 +1,30 @@
+:host { display: block; }
+.admin-page { min-height: calc(100vh - 160px); padding: 4rem 0; background: #f8fafc; color: #334155; }
+.container { width: min(100% - 2rem, 1180px); margin-inline: auto; }
+.admin-page__header, .admin-panel__toolbar, .booking-card__main, .admin-login__row, .doctor-row { display: flex; gap: 1rem; align-items: center; justify-content: space-between; }
+h1 { margin: 0.35rem 0; color: #0f172a; font-size: clamp(2rem, 4vw, 3rem); }
+h2 { margin: 0.2rem 0; color: #0f172a; font-size: 1.25rem; }
+p { margin: 0; }
+.admin-page__header { margin-bottom: 2rem; }
+.admin-page__eyebrow, .booking-card__service { color: #20bfa9; font-weight: 700; text-transform: uppercase; }
+.admin-login, .admin-panel, .booking-card { padding: 1.25rem; border: 1px solid #e2e8f0; border-radius: 0.75rem; background: #fff; }
+.admin-panel { margin-top: 1.5rem; }
+.admin-login { max-width: 34rem; }
+.admin-login label, .admin-panel__toolbar, .booking-card__status-select { font-weight: 700; }
+input, select { min-width: 0; padding: 0.7rem 0.85rem; border: 1px solid #cbd5e1; border-radius: 0.5rem; background: #fff; }
+.admin-login input { flex: 1; }
+button, .admin-page__secondary { padding: 0.7rem 1rem; border: 0; border-radius: 0.5rem; background: #2a7de1; color: #fff; font-weight: 700; cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: 0.65; }
+.admin-page__secondary { border: 1px solid #cbd5e1; background: #fff; color: #334155; }
+.admin-session, .booking-card__date, .booking-card__message { color: #64748b; }
+.admin-error, .admin-empty, .admin-success { margin-top: 1rem; padding: 0.75rem 0.9rem; border-radius: 0.5rem; }
+.admin-error { color: #b42318; background: #fef3f2; }
+.admin-success { color: #067647; background: #ecfdf3; }
+.booking-list, .doctor-list, .doctor-form, .booking-card__status-select { display: grid; gap: 0.75rem; }
+.booking-card, .doctor-list { margin-top: 1rem; }
+.booking-card__contacts { display: flex; flex-wrap: wrap; gap: 1rem; }
+.booking-card__contacts a { color: #0f172a; }
+.booking-card__message { margin-top: 1rem; }
+.booking-status { padding: 0.35rem 0.65rem; border-radius: 999px; background: #e0f2fe; color: #075985; font-weight: 800; }
+.doctor-form { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
+.doctor-row { padding: 0.85rem; border-radius: 0.5rem; background: #f8fafc; }

@@ -1,9 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 
-import { SERVICES } from '../../data/services.data';
-import { SPECIALISTS } from '../../data/specialists.data';
-
 import { SectionTitleComponent } from '../../shared/components/section-title/section-title.component';
 import { ServiceCardComponent } from '../../shared/components/service-card/service-card.component';
 import { SpecialistCardComponent } from '../../shared/components/specialist-card/specialist-card.component';
@@ -28,7 +25,7 @@ import { Specialist } from '../../models/specialist';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  private api = inject(ApiService)
+  private api = inject(ApiService);
 
   services: Service[] = [];
   specialists: Specialist[] = [];
